@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Converters="clr-namespace:AppSQLite.Converters"
+             x:Class="AppSQLite.Views.UpdatePerson"
+             Title="Actualizar Empleado">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Converters:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Image x:Name="imgg" Source="{Binding img, Converter={StaticResource ByteArrayToImage}}" HeightRequest="120" WidthRequest="100" BackgroundColor="Green" HorizontalOptions="CenterAndExpand" Aspect="Fill">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                                Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1" />
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Entry x:Name="txtCode" Placeholder="ID" Text="{Binding code}" IsVisible="False"></Entry>
+            
+            <Label Text="NOMBRE:"></Label>
+            <Entry x:Name="txtFirstnames" Placeholder="Ingrese un Solo Nombre" Text="{Binding firstNames}" Keyboard="Text"></Entry>
+
+            <Label Text="APELLIDO:"></Label>
+            <Entry x:Name="txtLastnames" Placeholder="Ingrese un Solo Apellido" Text="{Binding lastNames}" Keyboard="Text"></Entry>
+
+            <Label Text="EDAD:"></Label>
+            <Entry x:Name="txtAge" Placeholder="Ingrese Su Edad" Keyboard="Numeric" Text="{Binding age}"></Entry>
+
+            <Label Text="DIRECCION:"></Label>
+            <Entry x:Name="txtAddress" Placeholder="Ingrese Una Direccion" Text="{Binding address}"></Entry>
+
+            <Label Text="PUESTO:"></Label>
+            <Entry x:Name="txtPuesto" Placeholder="Ingrese Su Puesto" Keyboard="Text" Text="{Binding puesto}"></Entry>
+
+            <Button x:Name="btnConfirmUpdate" Text="CONFIRMAR" Clicked="btnConfirmUpdate_Clicked"></Button>
+            <Button x:Name="btnCancelUpdate" Text="REGRESAR" Clicked="btnCancelUpdate_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

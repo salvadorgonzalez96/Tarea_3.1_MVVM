@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppSQLite.MainPage"
+             Title="Ejercicio 3.1 Modelo MVVM">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+
+                <Label Text="Elija una Opcion" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Center" FontSize="30" TextColor="Black"/>
+                <Button Text="AGREGAR EMPLEADO" Clicked="Button_Clicked" Grid.Row="5" Grid.Column="0" Grid.RowSpan="2"></Button>
+                <Button x:Name="btnListPersons" Text="VER EMPELADOS" Clicked="btnListPersons_Clicked" Grid.Row="5" Grid.Column="1" Grid.RowSpan="2"></Button>
+                
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+    
+</ContentPage>

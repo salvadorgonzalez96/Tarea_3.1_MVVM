@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppSQLite.Views.PersonPages"
+             Title="Agregar Empleado">
+    
+    <ContentPage.Content>
+        <StackLayout>
+            
+            
+                <Image x:Name="imgg" HeightRequest="120" WidthRequest="100" BackgroundColor="Green" HorizontalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                                Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </Image>
+            
+            
+            <Entry x:Name="txtCode" IsVisible="false"></Entry>
+            <Label Text="NOMBRE:"></Label>
+            <Entry x:Name="txtFirstnames" Placeholder="Ingrese un Solo Nombre" Keyboard="Text"></Entry>
+
+            <Label Text="APELLIDO"></Label>
+            <Entry x:Name="txtLastnames" Placeholder="Ingrese un Solo Apellido" Keyboard="Text"></Entry>
+
+            <Label Text="EDAD:"></Label>
+            <Entry x:Name="txtAge" Placeholder="Ingrese Su Edad" Keyboard="Numeric"></Entry>
+
+            <Label Text="DIRECCION:"></Label>
+            <Entry x:Name="txtAddress" Placeholder="Ingrese Una Direccion"></Entry>
+
+            <Label Text="PUESTO:"></Label>
+            <Entry x:Name="txtPuesto" Placeholder="Ingrese Su Puesto" Keyboard="Text"></Entry>
+
+            <Button x:Name="btnSavePerson" Text="GUARDAR EMPLEADO" Clicked="btnSavePerson_Clicked"></Button>
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

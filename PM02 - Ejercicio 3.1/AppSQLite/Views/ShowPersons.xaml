@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Converters="clr-namespace:AppSQLite.Converters"
+             x:Class="AppSQLite.Views.ShowPersons"
+             Title="Mostrar Empleados">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Converters:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout>
+        <Label Text="Lista de Empleados Creados" FontSize="Medium" HorizontalOptions="Center" Padding="10"></Label>
+        
+        <ListView x:Name="listPersons" ItemSelected="listPersons_ItemSelected" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <ListView.Header>
+                <StackLayout>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="50"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="ID" Grid.Row="0" Grid.Column="0" FontSize="15" HorizontalOptions="Center" FontAttributes="Bold" IsVisible="false"/>
+                        <Label Text="Nombre" Grid.Row="0" Grid.Column="1" FontSize="15" FontAttributes="Bold"/>
+                        <Label Text="Apellidos" Grid.Row="0" Grid.Column="2" FontSize="15" FontAttributes="Bold"/>
+                        <Label Text="Edad" Grid.Row="0" Grid.Column="3" FontSize="15" FontAttributes="Bold"/>
+                        <Label Text="Direccion" Grid.Row="0" Grid.Column="4" FontSize="15" FontAttributes="Bold"/>
+                        <Label Text="Puesto" Grid.Row="0" Grid.Column="5" FontSize="15" FontAttributes="Bold"/>
+                    </Grid>
+                    
+                </StackLayout>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="50"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding code}" x:Name="colCode" Grid.Row="0" Grid.Column="0" TextColor="Blue" HorizontalOptions="Center" IsVisible="false"></Label>
+                            <Label Text="{Binding firstNames}" Grid.Row="0" Grid.Column="1" TextColor="Gray"></Label>
+                            <Label Text="{Binding lastNames}" Grid.Row="0" Grid.Column="2" TextColor="Gray"></Label>
+                            <Label Text="{Binding age}" Grid.Row="0" Grid.Column="3" TextColor="Gray" ></Label>
+                            <Label Text="{Binding address}" Grid.Row="0" Grid.Column="4" TextColor="Gray"></Label>
+                            <Label Text="{Binding puesto}" Grid.Row="0" Grid.Column="5" TextColor="Gray"></Label>
+                            <Image Source="{Binding img, Converter={StaticResource ByteArrayToImage}}"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button x:Name="btnUpdatePerson" Text="Actualizar" Clicked="btnUpdatePerson_Clicked" IsVisible="false"></Button>
+        <Button x:Name="btnDeletePerson" Text="Eliminar" Clicked="btnDeletePerson_Clicked" IsVisible="false"></Button>
+    </StackLayout>
+</ContentPage>
